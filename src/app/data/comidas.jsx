@@ -1,0 +1,31 @@
+export const comidas = [
+  {
+    id: 1,
+    name: "Pizzas Yayos",
+    description: "Las mejores pizzas en Monterrey, pide ahora!",
+    iconName: "pizza-slice",
+    url: require("assets/pizza.webp"),
+    deliveryTime: "30 min",
+    shipping: 0,
+    off: 50,
+  },
+  {
+    id: 2,
+    name: "Hamburguesas Los Pollos",
+    description: "Carne 100% de res",
+    iconName: "hamburger",
+    url: require("assets/burguer.webp"),
+    deliveryTime: "35 min",
+    shipping: 30,
+  },
+  {
+    id: 3,
+    name: "Comidas Saludables",
+    description: "Frutas y verduras",
+    iconName: "apple-alt",
+    url: require("assets/verduras.webp"),
+    deliveryTime: "25 min",
+    shipping: 20,
+    off: 30,
+  },
+];

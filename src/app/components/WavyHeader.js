@@ -5,12 +5,12 @@ import { colors } from "../../themes/colors";
 export default function WavyHeader({ customStyles }) {
   return (
     <View style={customStyles}>
-      <View style={{ backgroundColor: colors.yellow[300], height: 160 }}>
+      <View style={{ backgroundColor: colors.yellow[300], height: 100 }}>
         <Svg
-          height="60%"
+          height="100%"
           width="100%"
           viewBox="0 0 1440 320"
-          style={{ position: "absolute", top: 130 }}
+          style={{ position: "absolute", top: 80 }}
         >
           <Path
             fill={colors.yellow[300]}
