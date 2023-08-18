@@ -1,4 +1,11 @@
-import { Image, Pressable, SafeAreaView, Text, View } from "react-native";
+import {
+  Image,
+  Pressable,
+  SafeAreaView,
+  StatusBar,
+  Text,
+  View,
+} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { globalStyles } from "../../styles";
 import { colors } from "../../../themes/colors";
@@ -48,6 +55,12 @@ const Cards = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: theme.background }}>
+      <StatusBar
+        animated={true}
+        backgroundColor="#61dafb"
+        barStyle="light-content"
+      />
+
       <View>
         <GoBackButton navigation={navigation} />
       </View>

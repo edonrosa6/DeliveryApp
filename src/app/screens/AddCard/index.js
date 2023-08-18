@@ -22,7 +22,7 @@ const AddCard = () => {
 
         <View style={{ marginTop: 20 }}>
           <View>
-            <Text style={{ color: theme.textSecondary }}>Titular</Text>
+            <Text style={{ color: theme.text }}>Titular</Text>
 
             <View
               style={[
@@ -46,7 +46,7 @@ const AddCard = () => {
           </View>
 
           <View>
-            <Text>Número de tarjeta</Text>
+            <Text style={{ color: theme.text }}>Número de tarjeta</Text>
 
             <View
               style={[
@@ -89,7 +89,7 @@ const AddCard = () => {
             </View>
 
             <View style={{ flex: 1 }}>
-              <Text>Código de seguridad</Text>
+              <Text style={{ color: theme.text }}>Código de seguridad</Text>
               <TextInput
                 style={[
                   styles.input,
