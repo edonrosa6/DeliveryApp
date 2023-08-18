@@ -19,4 +19,12 @@ export const globalStyles = StyleSheet.create({
     top: 10,
     left: 10,
   },
+  btnGoBack: {
+    marginHorizontal: 20,
+    width: 30,
+    height: 30,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 100,
+  },
 });

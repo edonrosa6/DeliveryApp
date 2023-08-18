@@ -5,6 +5,7 @@ export const descuentos = [
     url: require("assets/pizza.webp"),
     price: 150,
     foodId: 1,
+    ingredientsNumber: 3,
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ export const descuentos = [
     url: require("assets/pizza.webp"),
     price: 250,
     foodId: 1,
+    ingredientsNumber: 5,
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ export const descuentos = [
     url: require("assets/pizza.webp"),
     price: 150,
     foodId: 1,
+    ingredientsNumber: 5,
   },
 
   {

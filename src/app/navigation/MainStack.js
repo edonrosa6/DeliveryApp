@@ -7,6 +7,9 @@ import Home from "screens/Home";
 import DetailsFood from "screens/DetailsFood";
 import Profile from "screens/Profile";
 import BuyFood from "screens/BuyFood";
+import Cards from "../screens/Cards";
+import CardDetails from "../screens/CardDetails";
+import AddCard from "../screens/AddCard";
 
 const Stack = createNativeStackNavigator();
 
@@ -15,12 +18,10 @@ const HomeNavigator = () => {
     <Stack.Navigator>
       <Stack.Screen
         options={{
-          headerStyle: {
-            backgroundColor: colors.yellow[300],
-          },
           title: "Delivery App",
           headerStyle: styles.header,
           headerShadowVisible: false,
+          headerShown: false,
         }}
         name="DeliveryApp"
         component={Home}
@@ -60,18 +61,74 @@ const ProfileNavigator = () => {
         name="ProfileNavigator"
         options={{
           title: "Perfil",
+          headerShown: false,
           headerBackTitleVisible: false,
           headerTintColor: colors.black[400],
-          headerStyle: styles.header,
           headerShadowVisible: false,
         }}
         component={Profile}
+      />
+      <Stack.Screen
+        options={{ headerShown: false }}
+        name="CardsNavigator"
+        component={CardsNavigator}
       />
     </Stack.Navigator>
   );
 };
 
 export { ProfileNavigator };
+
+const CardsNavigator = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Cards"
+        options={{
+          title: "Tarjetas",
+          headerShown: false,
+          headerTintColor: colors.black[400],
+          headerShadowVisible: false,
+          headerStyle: {
+            backgroundColor: colors.yellow[200],
+          },
+          headerBackVisible: true,
+        }}
+        component={Cards}
+      />
+
+      <Stack.Screen
+        name="CardDetails"
+        options={{
+          title: "Detalle",
+          headerShown: false,
+          headerTintColor: colors.black[400],
+          headerShadowVisible: false,
+          headerStyle: {
+            backgroundColor: colors.yellow[200],
+          },
+          headerBackVisible: true,
+        }}
+        component={CardDetails}
+      />
+
+      <Stack.Screen
+        name="AddCard"
+        options={{
+          title: "Detalle",
+          headerShown: false,
+          headerTintColor: colors.black[400],
+          headerShadowVisible: false,
+          headerStyle: {
+            backgroundColor: colors.yellow[200],
+          },
+          headerBackVisible: true,
+        }}
+        component={AddCard}
+      />
+    </Stack.Navigator>
+  );
+};
 
 const styles = StyleSheet.create({
   header: {

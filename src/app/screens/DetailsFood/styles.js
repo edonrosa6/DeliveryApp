@@ -6,6 +6,7 @@ export default StyleSheet.create({
     backgroundColor: colors.yellow[400],
     width: "100%",
     position: "relative",
+    alignItems: "center",
   },
   title: {
     fontWeight: "900",

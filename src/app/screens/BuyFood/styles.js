@@ -5,10 +5,7 @@ export default StyleSheet.create({
   bgHead: {
     width: "100%",
     position: "relative",
-    height: 200,
-    backgroundColor: colors.yellow[300],
-    borderBottomEndRadius: 30,
-    borderBottomStartRadius: 30,
+    height: 350,
   },
   title: {
     fontWeight: "900",
@@ -42,5 +39,11 @@ export default StyleSheet.create({
     justifyContent: "center",
     borderRadius: 100,
     backgroundColor: colors.gray[200],
+  },
+  header: {
+    backgroundColor: colors.gray[200],
+    borderTopStartRadius: 50,
+    borderTopEndRadius: 50,
+    padding: 25,
   },
 });

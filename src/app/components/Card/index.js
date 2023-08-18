@@ -5,7 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import styles from "./styles";
 import { colors } from "../../../themes/colors";
 
-const Card = ({ item }) => {
+const Card = ({ item, theme }) => {
   const navigation = useNavigation();
 
   return (
@@ -49,7 +49,9 @@ const Card = ({ item }) => {
       </View>
 
       <View>
-        <Text style={styles.titleBanner}>{item.name}</Text>
+        <Text style={[styles.titleBanner, { color: theme.textSecondary }]}>
+          {item.name}
+        </Text>
       </View>
     </Pressable>
   );

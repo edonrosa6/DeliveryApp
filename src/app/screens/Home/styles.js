@@ -1,18 +1,15 @@
 import { StyleSheet, Dimensions } from "react-native";
-import { colors } from "../../../themes/colors";
+import { useTheme } from "../../config/theme";
 
 export default StyleSheet.create({
   title: {
     fontWeight: "900",
     fontSize: 25,
-    color: colors.black[700],
   },
   principalText: {
-    color: colors.black[400],
     marginTop: 5,
   },
   bgCard: {
-    backgroundColor: colors.yellow[300],
     borderRadius: 13,
     paddingVertical: 10,
     marginVertical: 20,
@@ -23,7 +20,6 @@ export default StyleSheet.create({
     fontSize: 15,
   },
   descBanner: {
-    color: colors.black[400],
     fontSize: 12,
   },
   banner: {

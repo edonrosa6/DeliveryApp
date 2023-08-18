@@ -7,8 +7,8 @@ export default StyleSheet.create({
     fontWeight: "900",
   },
   bgBannerOff: {
-    borderWidth: 0.5,
-    borderColor: colors.gray[600],
+    borderWidth: 0.8,
+    borderColor: colors.gray[300],
     backgroundColor: colors.gray[200],
     borderRadius: 20,
     marginTop: 35,

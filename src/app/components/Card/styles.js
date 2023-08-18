@@ -13,7 +13,6 @@ export default StyleSheet.create({
   },
   titleBanner: {
     marginTop: 5,
-    color: colors.black[400],
     flexWrap: "wrap",
     flexDirection: "row",
     fontSize: 16,

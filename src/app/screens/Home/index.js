@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Text,
   View,
@@ -6,6 +6,9 @@ import {
   ScrollView,
   Dimensions,
   RefreshControl,
+  SafeAreaView,
+  StatusBar,
+  Pressable,
 } from "react-native";
 import styles from "./styles";
 
@@ -13,15 +16,21 @@ import WavyHeader from "components/WavyHeader";
 
 import { recomendaciones } from "data/recomendaciones";
 import { comidas } from "data/comidas";
-
+import { Entypo } from "@expo/vector-icons";
 import Search from "../../components/Search";
 import Banner from "../../components/Banner";
 import Card from "../../components/Card";
+import { colors } from "../../../themes/colors";
+import Logo from "../../components/Logo";
+import { useTheme } from "../../config/theme";
+import themeContext from "../../config/themeContext";
+import { globalStyles } from "../../styles";
 
 const Home = () => {
   const [text, onChangeText] = React.useState("");
   const [refreshing, setRefreshing] = React.useState(false);
   const windowHeight = Dimensions.get("window").height;
+  const theme = useContext(themeContext);
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
@@ -31,65 +40,106 @@ const Home = () => {
   }, []);
 
   return (
-    <View style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: theme.background }}>
+      <StatusBar
+        animated={true}
+        backgroundColor="#61dafb"
+        barStyle="dark-content"
+      />
+
       <WavyHeader customStyles={styles.svgCurve} />
 
-      <View
-        style={{
-          flexDirection: "column",
-          justifyContent: "space-around",
-          width: "100%",
-          paddingHorizontal: 20,
-        }}
-      >
-        <Search value={text} onChangeText={onChangeText} />
-
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          refreshControl={
-            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-          }
-          style={{ height: windowHeight }}
+      <View style={{ marginBottom: 160 }}>
+        <View
+          style={{
+            paddingHorizontal: 20,
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
         >
-          <View style={{ marginTop: 35 }}>
-            <Text style={styles.title}>¡Hola, Edson!</Text>
-            <Text style={styles.principalText}>
-              Las mejores comidas hasta tu hogar con un solo clic.
-            </Text>
+          <View>
+            <Pressable
+              style={[
+                globalStyles.shadowProp,
+                {
+                  backgroundColor: theme.background,
+                  borderRadius: 100,
+                  padding: 5,
+                },
+              ]}
+            >
+              <Entypo name="menu" size={24} color={theme.text} />
+            </Pressable>
           </View>
 
-          <Banner />
+          <Logo />
+        </View>
 
-          <FlatList
-            style={{ width: "100%", marginTop: 25 }}
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}
-            data={comidas}
-            renderItem={({ item }) => (
-              <View key={item.id}>
-                <Card item={item}></Card>
-              </View>
-            )}
-          ></FlatList>
+        <View
+          style={{
+            flexDirection: "column",
+            justifyContent: "space-around",
+            width: "100%",
+            paddingHorizontal: 20,
+            height: "100%",
+          }}
+        >
+          <Search value={text} onChangeText={onChangeText} />
 
-          {/* Recomendaciones */}
-          <View style={{ marginTop: 25, marginBottom: 45 }}>
-            <Text style={styles.subtitle}>Recomendaciones</Text>
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            refreshControl={
+              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            }
+            style={{ height: windowHeight }}
+          >
+            <View style={{ marginTop: 25 }}>
+              <Text style={[styles.title, { color: theme.text }]}>
+                ¡Hola, Edson!
+              </Text>
+              <Text
+                style={[styles.principalText, { color: theme.textSecondary }]}
+              >
+                Las mejores comidas hasta tu hogar con un solo clic.
+              </Text>
+            </View>
+
+            <Banner />
+
             <FlatList
-              style={{ width: "100%", marginVertical: 15 }}
+              style={{ width: "100%", marginTop: 25 }}
               horizontal={true}
               showsHorizontalScrollIndicator={false}
-              data={recomendaciones}
+              data={comidas}
               renderItem={({ item }) => (
                 <View key={item.id}>
-                  <Card item={item} />
+                  <Card theme={theme} item={item}></Card>
                 </View>
               )}
             ></FlatList>
-          </View>
-        </ScrollView>
+
+            {/* Recomendaciones */}
+            <View style={{ marginTop: 25, marginBottom: 45 }}>
+              <Text style={[styles.subtitle, { color: theme.text }]}>
+                Recomendaciones
+              </Text>
+              <FlatList
+                style={{ width: "100%", marginVertical: 15 }}
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+                data={recomendaciones}
+                renderItem={({ item }) => (
+                  <View key={item.id}>
+                    <Card theme={theme} item={item} />
+                  </View>
+                )}
+              ></FlatList>
+            </View>
+          </ScrollView>
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

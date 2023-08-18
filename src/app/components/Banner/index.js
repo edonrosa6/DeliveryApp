@@ -1,9 +1,13 @@
+import { useContext } from "react";
 import { Image, Pressable, Text, View } from "react-native";
 import styles from "./styles";
 import { colors } from "../../../themes/colors";
 import { LinearGradient } from "expo-linear-gradient";
+import themeContext from "../../config/themeContext";
 
 const Banner = () => {
+  const theme = useContext(themeContext);
+
   return (
     <View
       style={[
@@ -14,6 +18,8 @@ const Banner = () => {
           width: "100%",
           alignItems: "center",
           height: 150,
+          backgroundColor: theme.backgroundSecondary,
+          borderColor: theme.backgroundSecondary,
         },
       ]}
     >
@@ -22,11 +28,12 @@ const Banner = () => {
           padding: 20,
           width: "50%",
           borderRadius: 100,
-          backgroundColor: colors.gray[200],
         }}
       >
-        <Text style={styles.titleOff}>50% OFF</Text>
-        <Text style={styles.descOff}>Descuento en diferentes tiendas.</Text>
+        <Text style={[styles.titleOff, { color: theme.text }]}>50% OFF</Text>
+        <Text style={[styles.descOff, { color: theme.textSecondary }]}>
+          Descuento en diferentes tiendas.
+        </Text>
         <Pressable
           style={({ pressed }) => [
             {
