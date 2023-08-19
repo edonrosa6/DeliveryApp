@@ -46,7 +46,7 @@ const CardDetails = ({ route, navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: theme.background }}>
       <View style={{ flexDirection: "row", alignItems: "center" }}>
-        <GoBackButton />
+        <GoBackButton navigation={navigation} />
 
         <Text style={{ color: theme.text }}>{name}</Text>
       </View>
