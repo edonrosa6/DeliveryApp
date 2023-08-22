@@ -19,7 +19,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./src/assets/logo.png",
+        "foregroundImage": "./src/assets/adaptative-icon.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.edsonrosales.DeliveryApp"

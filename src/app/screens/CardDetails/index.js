@@ -1,17 +1,14 @@
 import { Image, Pressable, SafeAreaView, Text, View } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import { globalStyles } from "../../styles";
 import { colors } from "../../../themes/colors";
 import styles from "./styles";
 import { LinearGradient } from "expo-linear-gradient";
-import ProfileList from "../../components/ProfileList";
 import themeContext from "../../config/themeContext";
 import { useContext } from "react";
-import GoBackButton from "../../components/GoBackButton";
+import GoBackButton from "components/GoBackButton";
 
 const CardDetails = ({ route, navigation }) => {
   const theme = useContext(themeContext);
-  const { name, cardNumber, icon, url, holder, dueDate } = route.params.item;
+  const { name, cardNumber, url, holder, dueDate } = route.params.item;
 
   const lastDigits = (cardNumber) => {
     return cardNumber.slice(-4);
